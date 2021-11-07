@@ -1,1 +1,119 @@
-<p>switches template works!</p>
+<h2 class="animate__animated animate__bounce">Template: Switches</h2>
+<hr>
+
+<form #miFormulario="ngForm"
+      class="animate__animated animate__fadeInLeft">
+
+
+<!--  Radios-->
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">Género</label>
+    <div class="col-sm-9">
+      <div class="form-check">
+        <input class="form-check-input"
+               type="radio"
+               value="M"
+               name="radioGenero"
+               [(ngModel)]="persona.genero"
+               id="radioMasculino"
+               required>
+        <label class="form-check-label" for="radioMasculino">
+          Masculino
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input"
+               type="radio"
+               value="F"
+               name="radioGenero"
+               [(ngModel)]="persona.genero"
+               id="radioFemenino"
+               required>
+        <label class="form-check-label" for="radioFemenino">
+          Femenino
+        </label>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<!--  Switches-->
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">Notificaciones</label>
+    <div class="col-sm-9">
+      <div class="form-check form-switch mt-2">
+        <input class="form-check-input"
+               type="checkbox"
+               name="notificaciones"
+               [(ngModel)]="persona.notificaciones"
+               role="switch"
+               id="flexSwitchCheckChecked">
+        <label class="form-check-label" for="flexSwitchCheckChecked">Quiero recibir notificaciones</label>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--  Checkbox-->
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label"></label>
+    <div class="col-sm-9">
+      <div class="form-check">
+        <input class="form-check-input"
+               type="checkbox"
+               name="terminosYCondiciones"
+               [(ngModel)]="terminosYCondiciones"
+               id="flexCheckDisabled"
+               required>
+        <label class="form-check-label" for="flexCheckDisabled">
+          Términos y condiciones de uso
+        </label>
+      </div>
+    </div>
+  </div>
+
+
+
+<!--  Boton submit-->
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary float-end"
+            [disabled]="miFormulario.invalid">
+      Guardar
+    </button>
+  </div>
+</div>
+
+</form>
+
+
+<div class="row" >
+  <div class="col animate__animated animate__fadeInBottomRight">
+
+    <h5>Valor del Formulario</h5>
+    <pre>{{ miFormulario.value | json }}</pre>
+
+    <h5>Persona</h5>
+    <pre>{{ persona | json }}</pre>
+
+    <h5>Términos: </h5>
+    <pre>{{ miFormulario.controls?.termnos?.errors | json }}</pre>
+
+    <h5>Valid: </h5>
+    <pre>{{ miFormulario.valid }}</pre>
+
+
+    <h5>Pristing</h5>
+    <pre>{{ miFormulario.pristine}}</pre>
+
+
+    <h5>Touched</h5>
+    <pre>{{ miFormulario.touched}}</pre>
+
+  </div>
+</div>
+
+
