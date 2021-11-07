@@ -1,1 +1,92 @@
-<p>basicos reactive works!</p>
+<h2 class="animate__animated animate__bounce">Reactivos: Básicos</h2>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <form autocomplete="off"
+          [formGroup]="miFormulario"
+          class="animate__animated animate__fadeInLeft">
+
+      <!--      Campo de Producto-->
+      <div class="mb-row">
+        <label class="col-sm-3 col-form-label">Productos</label>
+        <div class="col-sm-9">
+          <input type="text"
+                 class="form-control"
+                 formControlName="nombre"
+                 placeholder="Nombre del Producto">
+          <span class="form-text text-danger"
+                *ngIf="campoEsValido('nombre')">
+                  Debe de ser de 3 letras
+          </span>
+        </div>
+      </div>
+
+      <!--      Campo de Precio-->
+      <div class="mb-row">
+        <label class="col-sm-3 col-form-label">Precio</label>
+        <div class="col-sm-9">
+          <input type="number"
+                 class="form-control"
+                 formControlName="precio"
+                 placeholder="Precio del Producto">
+          <span class="form-text text-danger"
+                *ngIf="campoEsValido('precio')">
+                  El precio debe de ser 0 o mayor
+          </span>
+        </div>
+      </div>
+
+      <!--      Campo de Existencias-->
+      <div class="mb-row">
+        <label class="col-sm-3 col-form-label">Existencias</label>
+        <div class="col-sm-9">
+          <input type="number"
+                 class="form-control"
+                 formControlName="existencias"
+                 placeholder="Existencias del Producto">
+          <span class="form-text text-danger"
+                *ngIf="campoEsValido('existencias')">
+                  Las existencias deben de ser 0 o mayor
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <button type="submit"
+                  class="btn btn-primary float-end"
+                  [disabled]="miFormulario.invalid">
+            Guardar
+          </button>
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+</div>
+
+
+<div class="row" >
+  <div class="col animate__animated animate__fadeInBottomRight">
+
+    <span>Valid</span>
+    <pre>{{ miFormulario.valid}}</pre>
+
+    <span>Pristing</span>
+    <pre>{{ miFormulario.pristine}}</pre>
+
+    <span>Touched</span>
+    <pre>{{ miFormulario.touched}}</pre>
+
+    <span>Value</span>
+    <pre>{{ miFormulario.value | json}}</pre>
+
+    <span>Precio</span>
+    <pre>{{ miFormulario.controls.precio.errors | json}}</pre>
+  </div>
+</div>
+
+
+
