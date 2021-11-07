@@ -1,1 +1,99 @@
-<p>dinamicos reactive works!</p>
+<h2 class="animate__animated animate__bounce">Template: <small> Dinámicos </small></h2>
+<hr>
+
+<form (ngSubmit)="guardar()"
+      [formGroup]="miFormulario"
+      autocomplete="off"
+      class="animate__animated animate__fadeInLeft">
+
+  <!--Nombre-->
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">Nombre</label>
+    <div class="col-sm-9">
+      <input  class="form-control"
+              placeholder="Nombre de la persona"
+              formControlName="nombre">
+      <span class="form-text text-danger"
+            *ngIf="campoEsValido('nombre')">
+        Este campo es obligatorio
+      </span>
+    </div>
+  </div>
+
+
+  <!--Agregar favorito-->
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">Agregar</label>
+    <div class="col-sm-9">
+      <div class="input-group">
+        <input  class="form-control"
+                [formControl]="nuevoFavorito"
+                placeholder="Agregar favorito"
+                (keyup.enter)="agregarFavorito()">
+        <button class="btn btn-outline-primary"
+                type="button"
+        (click)="agregarFavorito()">
+          Agregar
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--Lista de Juegos Favoritos-->
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">Favoritos</label>
+    <div class="col-sm-9" formArrayName="favoritos">
+
+
+      <div class="input-group  mb-2"
+           *ngFor="let favorito of favoritosArr.controls; let i = index">
+        <input class="form-control"
+                [formControlName]="i">
+        <button class="btn btn-outline-danger
+"               type="button"
+                (click)="borrar(i)">
+          Eliminar
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-12">
+      <button type="button"
+              (click)="guardar()"
+              class="btn btn-primary float-end">
+        Guardar
+      </button>
+    </div>
+  </div>
+
+
+
+</form>
+
+
+<div class="row">
+  <div class="col animate__animated animate__fadeInBottomRight">
+
+    <span>Valid</span>
+    <pre>{{ miFormulario.valid }}</pre>
+
+    <span>Value</span>
+    <pre>{{ miFormulario.value | json }}</pre>
+
+    <span>Agregar Juego - Valid</span>
+    <pre>{{ nuevoFavorito.valid }}</pre>
+
+    <span>Agregar Juego - Value</span>
+    <pre>{{ nuevoFavorito.value }}</pre>
+
+
+  </div>
+
+</div>
+
