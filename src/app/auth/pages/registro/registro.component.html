@@ -62,7 +62,12 @@
         <div class="col-sm-9">
           <input type="password"
                  class="form-control"
+                 formControlName="password"
                  placeholder="Password de su cuenta">
+          <span class="form-text text-danger"
+                *ngIf="campoNoValido('password')">
+            La contraseña debe ser mayor que 6 caracteres
+          </span>
         </div>
       </div>
 
@@ -74,7 +79,12 @@
         <div class="col-sm-9">
           <input type="password"
                  class="form-control"
+                 formControlName="password2"
                  placeholder="Confirmar la contraseña">
+          <span class="form-text text-danger"
+                *ngIf="campoNoValido('password2')">
+            Las contraseñas deben ser iguales
+          </span>
         </div>
       </div>
 
@@ -96,14 +106,30 @@
 </div>
 
 
-<h2>Form Valid</h2>
+<h5>Form Valid</h5>
 <pre>{{ miFormulario.valid }}</pre>
 <br>
 
-<h2>Nombre</h2>
-<pre>{{ miFormulario.controls.nombre.errors | json }}</pre>
+<h5>Form Errors</h5>
+<pre>{{ miFormulario.errors | json }}</pre>
+<br>
 
-<h2>Nombre</h2>
+
+<h5>Nombre</h5>
+<pre>{{ miFormulario.controls.nombre.errors | json }}</pre>
+<br>
+
+<h5>Nombre</h5>
 <pre>{{ miFormulario.controls.email.errors | json }}</pre>
-<h2>Username</h2>
+<br>
+
+<h5>Username</h5>
 <pre>{{ miFormulario.controls.username.errors | json }}</pre>
+<br>
+
+<h5>Password</h5>
+<pre>{{ miFormulario.controls.password.errors | json }}</pre>
+<br>
+
+<h5>Confirmar</h5>
+<pre>{{ miFormulario.controls.password2.errors | json }}</pre>
