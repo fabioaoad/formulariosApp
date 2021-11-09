@@ -92,6 +92,7 @@
       <div class="row">
         <div class="col">
           <button class="btn btn-primary float-end"
+                  [disabled]="miFormulario.pending"
                   type="submit">
             Crear
           </button>
@@ -108,6 +109,14 @@
 
 <h5>Form Valid</h5>
 <pre>{{ miFormulario.valid }}</pre>
+
+
+<h5>Form Status</h5>
+<pre>{{ miFormulario.status }}</pre>
+<br>
+
+<h5>Form Pending</h5>
+<pre>{{ miFormulario.pending }}</pre>
 <br>
 
 <h5>Form Errors</h5>
