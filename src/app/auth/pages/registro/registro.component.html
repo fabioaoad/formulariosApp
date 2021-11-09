@@ -1,9 +1,10 @@
-<h2>Validaciones Reactivas</h2>
+<h2 class="animate__animated animate__bounce">Validaciones Reactivas</h2>
 <hr>
 
 <div class="row">
   <div class="col">
     <form autocomplete="off"
+          class="animate__animated animate__fadeInLeft"
           [formGroup]="miFormulario"
           (ngSubmit)="submitFormulario()">
 
@@ -107,6 +108,11 @@
 </div>
 
 
+
+
+<div class="row" >
+  <div class="col animate__animated animate__fadeInBottomRight">
+
 <h5>Form Valid</h5>
 <pre>{{ miFormulario.valid }}</pre>
 
@@ -142,3 +148,6 @@
 
 <h5>Confirmar</h5>
 <pre>{{ miFormulario.controls.password2.errors | json }}</pre>
+
+  </div>
+</div>
