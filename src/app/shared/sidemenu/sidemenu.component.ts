@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-//hola
+//La ruta es lo que veré en el URL, NO la estructura en árbol de directorio
 interface  MenuItem {
   texto: string;
   ruta : string;
@@ -48,5 +48,18 @@ export class SidemenuComponent{
       ruta: './reactive/switches'
     }
   ];
+
+
+  authMenu: MenuItem[] = [
+    {
+      texto: 'Registro',
+      ruta: './auth/registro'
+    },
+    {
+      texto: 'Login',
+      ruta: './auth/login'
+    }
+  ];
+
 
 }
